@@ -1,0 +1,10 @@
+header{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#boardwalkHeaderLogo{
+    width: 30%;
+    height: auto;
+}
