@@ -40,17 +40,26 @@
                     $password = 'password123';
                     $dbname = 'cafeInfo';
                     
-                    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+                    try {
+                        $conn = new PDO(
+                            'mysql:host=' . $host . ';dbname=' . $dbname,
+                            $username,
+                            $password
+                        );
+
+                    } catch (Exception $e) {
+                        die($e->getMessage());
+                    }
 
                     #get menu items and orders them by category
-                    $stmt = $conn->prepare("SELECT * FROM menuItems");
-                    $stmt.execute();
-
+                    $stmt = $conn->query("SELECT * FROM menuItems");
                     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-                    #goes through each menu item and prints its data
-                    echo 'naur';
                     
+                    
+                    #goes through each menu item and prints its data
+                    foreach ($results as $row) {
+                        echo $row['name'];
+                    }
                     ?>
                 
 
