@@ -24,16 +24,13 @@
             <h2>Menu</h2>
             
             <div id="menu-items-wrapper">
-                <div class="menuItem">
-                    <img class="menuItemPic">
-    
-                    <div class="menuItemContent">
-                        
-                    </div>
-                </div>
+                
 
                 <?php
-                
+
+                    ini_set('display_errors', 'On');
+                    error_reporting(E_ALL | E_STRICT);
+
                     #connects to databse
                     $host = 'localhost';
                     $username = 'boardwalk_user';
@@ -57,10 +54,15 @@
                     
                     
                     #goes through each menu item and prints its data
-                    foreach ($results as $row) {
-                        echo $row['name'];
-                    }
-                    ?>
+                    foreach ($results as $row): ?>
+                        <div class="menuItem">
+                            <img class="menuItemPic">
+            
+                            <div class="menuItemContent">
+                                <?=$row['name']?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
                 
 
             </div>
