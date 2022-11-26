@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS cafeInfo;
 CREATE DATABASE cafeInfo;
 USE cafeInfo;
 
-
+GRANT ALL PRIVILEGES ON cafeInfo.* TO 'boardwalk_user'@'localhost' IDENTIFIED BY 'password123';
 
 DROP TABLE IF EXISTS `menuItems`;
 CREATE TABLE `menuItems` (

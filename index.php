@@ -27,7 +27,7 @@
                 
 
                 <?php
-
+                    #turn on error reporting
                     ini_set('display_errors', 'On');
                     error_reporting(E_ALL | E_STRICT);
 
@@ -49,22 +49,44 @@
                     }
 
                     #get menu items and orders them by category
-                    $stmt = $conn->query("SELECT * FROM menuItems");
+                    $stmt = $conn->query("SELECT * FROM menuItems ORDER BY category");
                     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     
                     
                     #goes through each menu item and prints its data
                     foreach ($results as $row): ?>
+
+                        <button id="add-to-order-button" onclick="alert('naurr');">
                         <div class="menuItem">
                             <img class="menuItemPic">
             
                             <div class="menuItemContent">
-                                <?=$row['name']?>
+                                <h5><?=$row['name']?></h5>
+                                <div class="prices">
+                                    <?php 
+                                        #checks if the item comes in a large size and prints the large size value
+                                        if(intval($row['large_price']) > 0 and intval($row['price']) > 0){?>
+                                            
+                                            <h6><?=$row['medium_size']?> - $<?=$row['price']?></h6>
+                                            <h6><?=$row['large_size']?> - $<?=$row['large_price']?></h6>
+                                            
+                                            
+                                        <?php }elseif(intval($row['price']) > 0){?>
+                                             
+                                            <h6>Price - $<?=$row['price']?></h6>
+                                        <?php } ?>       
+                                                 
+                                    <h6></h6>
+                                </div>
                             </div>
                         </div>
+                        </button>
+                        
                     <?php endforeach; ?>
                 
-
+                    <!--<form>
+                        <input name="boardwalk-image" type="">
+                    </form>-->
             </div>
         </section>
         
