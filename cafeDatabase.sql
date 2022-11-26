@@ -41,8 +41,8 @@ INSERT INTO `menuItems` VALUES (1, 'Chicken','Sandwiches', 'MED', '', 510, 0, "d
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
     `name` varchar(50) NOT NULL default '',
-    `password` varchar(35)  NOT NULL default '',
-    `reward points` int(11) NOT NULL AUTO_INCREMENT ,
+    `password` varchar(300)  NOT NULL default '',
+    `reward points` int(11) NOT NULL default 0,
     PRIMARY KEY (`name`)
 
 )ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
@@ -54,9 +54,10 @@ CREATE TABLE `orders` (
     `total` int(11) NOT NULL default 0,
     `items` varchar(35)  NOT NULL default '',
     `status` char(4) NOT NULL default 'OPEN',
+    `date` varchar(11) NOT NULL default '',
     PRIMARY KEY (`id`)
 
 )ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `orders` VALUES (1, 1550, '10 MED, 12 LRG');
+INSERT INTO `orders` VALUES (1, 1550, '10 MED, 12 LRG', 'OPEN', '26/11/2022');
     

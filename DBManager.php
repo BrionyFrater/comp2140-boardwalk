@@ -22,6 +22,7 @@ class DBManager{
     private $username;
     private $password;
     private $dbname;
+    
 
     function __construct($host, $username, $password, $dbname)
     {
@@ -30,7 +31,7 @@ class DBManager{
         $this->password = $password;
         $this->dbname = $dbname;
 
-       
+        $this->dbmanager = $this;
         try{
             $this->conn = new PDO(
                 'mysql:host=' . $this->host . ';dbname=' . $this->dbname,
@@ -42,7 +43,7 @@ class DBManager{
         }
         
     }
-
+    #working
     function menuInfo(){
         #get menu items from the database
         $stmt = $this->conn->query("SELECT * FROM menuItems ORDER BY category");
@@ -94,22 +95,101 @@ class DBManager{
         </div><?php
     }
 
+    #working
     function userInfo($name){
-        $stmt = $this->conn->query("SELECT * FROM menuItems ORDER BY category");
+        
+
+        $stmt = $this->conn->prepare("SELECT * FROM `users` WHERE `name` = :name");
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+        
+        if($stmt->execute()){
+
+
+            if($stmt->rowCount() > 0 ){
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                #tester - later delete
+                foreach($results as $row){
+                    $info = $row;
+                    echo $row['name'];
+                }
+                return $info;
+            
+            }else{
+                return 'user not found';
+            }
+
+        }
+    }
+
+    
+    #working
+    function addUser($name, $password){
+        
+        $already_here = $this->userInfo($name);
+        $hashPass = password_hash($password, PASSWORD_DEFAULT);
+
+        #constraint - choose a suitable size to limit password to to accomadate hash
+        
+        
+        if($already_here === 'user not found'){
+
+            $stmt = $this->conn->prepare("INSERT INTO `users` (`name`, `password`) VALUES (:name, :password)");
+            $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+            $stmt->bindParam(':password', $hashPass, PDO::PARAM_STR);
+
+            if($stmt->execute()){
+                echo 'work';
+            }else{
+                echo 'an error occurred';
+            }
+            
+
+        }else{
+            echo 'someone already has this username';
+        }
+             
+    }
+
+    
+    function deleteUser($name){
+        
+        $this->conn->query("DELETE FROM `users` WHERE name = $name");
+    }
+
+    /*
+    function orderInfo($orderId){
+
+        $stmt = $this->conn->query("SELECT * FROM orders WHERE id = $orderId");
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
+
+        foreach($results as $row){
+            echo $row['items'];
+        }
+
+        echo 'ssca';
+
         
+
+
+        #select last order
+        #$stmt = $this->conn->query("SELECT * FROM orders ORDER BY id DESC LIMIT 1");
+        #$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function addUser($name, $password){
-        #sanitize input
-        $this->conn->query("INSERT INTO users (name, password) VALUES ($name, $password)");
+
+    #further testing needed
+    function addOrder($total, $items, $date){
+        
+        $this->conn->query("INSERT INTO `orders` (`total`, `items`, `date`) VALUES ($total, $items, $date)");
+
     }
 
-    function deleteUser($name){
-        #sanitize input
-        $this->conn->query("DELETE FROM users WHERE 'name'=$name");
-    }
+    function deleteOrder($orderId){
+        $this->conn->query("DELETE FROM orders WHERE id = $orderId");
+    }*/
 
 
 
