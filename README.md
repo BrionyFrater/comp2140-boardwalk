@@ -1,3 +1,3 @@
 # comp2140-boardwalk
 
-Main Menu for Boardwalk Cafe
+i plan to change the layout of the Main Menu i just wanted to see things on the page;

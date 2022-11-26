@@ -1,20 +1,5 @@
 <?php
-$host = 'localhost';
-$username = 'boardwalk_user';
-$password = 'password123';
-$dbname = 'cafeInfo';
-
-try {
-    $conn = new PDO(
-        'mysql:host=' . $host . ';dbname=' . $dbname,
-        $username,
-        $password
-    );
-
-} catch (Exception $e) {
-    die($e->getMessage());
-}
-        
+ 
 class DBManager{
 
     private $conn;
@@ -42,6 +27,10 @@ class DBManager{
             die($e->getMessage());
         }
         
+    }
+
+    function getConn(){
+        return $this->conn;
     }
     #working
     function menuInfo(){
@@ -193,11 +182,9 @@ class DBManager{
     }
 
     
-    #further testing needed
+   
     function addOrder($total, $items, $date){
 
-        var_dump($date);
-        
         $stmt = $this->conn->prepare("INSERT INTO `orders` (`total`, `items`, `date`) VALUES (:total, :items, :date)");
         $stmt->bindParam(':total', $total, PDO::PARAM_INT);
         $stmt->bindParam(':items', $items, PDO::PARAM_STR);

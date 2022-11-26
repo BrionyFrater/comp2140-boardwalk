@@ -30,6 +30,7 @@
 
                 <?php
                     require_once 'DBManager.php';
+                    require_once 'Employee.php';
 
                     #turn on error reporting
                     ini_set('display_errors', 'On');
@@ -49,7 +50,6 @@
                     #$date = date('d, m, Y', strtotime('now'));
                     #$db->addOrder(140, 'juice and thing', $date);
 
-                    
                     ?>
                     
             </div>

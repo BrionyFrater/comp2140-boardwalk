@@ -54,10 +54,11 @@ CREATE TABLE `orders` (
     `total` int(11) NOT NULL default 0,
     `items` varchar(300)  NOT NULL default '',
     `status` char(4) NOT NULL default 'OPEN',
+    `delivered` varchar(3) NOT NULL default 'NO',
     `date` varchar(20) NOT NULL default '',
     PRIMARY KEY (`id`)
 
 )ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `orders` VALUES (1, 1550, '10 MED, 12 LRG', 'OPEN', '26/11/2022');
+INSERT INTO `orders` VALUES (1, 1550, '10 MED, 12 LRG', 'OPEN', 'NO', '26/11/2022');
     
