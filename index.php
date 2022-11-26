@@ -43,6 +43,8 @@
                     $dbname = 'cafeInfo';
                     
                     $db = new DBManager($host, $username, $password, $dbname);
+
+                    $db->menuInfo();
                     
                     #goes through each menu item and prints its data
                     #$db->menuInfo();
