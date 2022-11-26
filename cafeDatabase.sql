@@ -13,28 +13,29 @@ CREATE TABLE `menuItems` (
     `large_size` char(3) NOT NULL default '', 
     `price` int(5)  NOT NULL default 0,
     `large_price` int(5) NOT NULL default 0,
+    `image` varchar(50) NOT NULL default 'default-menu-image.jpg',
     PRIMARY KEY (`id`)
 
 )ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO `menuItems` VALUES (1, 'Chicken','Sandwiches', 'MED', '', 510, 0),
-    (2, 'B.L.T','Sandwiches', 'MED', '', 510, 0),
-    (3, 'Turkey Club','Sandwiches', 'MED', '', 570, 0),
-    (4, 'Traditional Club','Sandwiches', 'MED', '', 570, 0),
+INSERT INTO `menuItems` VALUES (1, 'Chicken','Sandwiches', 'MED', '', 510, 0, "default-menu-image.jpg"),
+    (2, 'B.L.T','Sandwiches', 'MED', '', 510, 0, "default-menu-image.jpg"),
+    (3, 'Turkey Club','Sandwiches', 'MED', '', 570, 0, "default-menu-image.jpg"),
+    (4, 'Traditional Club','Sandwiches', 'MED', '', 570, 0, "default-menu-image.jpg"),
 
-    (5, 'Traditional Club','Wraps', 'MED', '', 635, 0),
-    (6, 'Turkey Club','Wraps', 'MED', '', 665, 0),
-    (7, 'Chicken','Wraps', 'MED', '', 630, 0),
-    (8, 'Ham and Cheese','Wraps', 'MED', '', 630, 0),
+    (5, 'Traditional Club','Wraps', 'MED', '', 635, 0, "default-menu-image.jpg"),
+    (6, 'Turkey Club','Wraps', 'MED', '', 665, 0, "default-menu-image.jpg"),
+    (7, 'Chicken','Wraps', 'MED', '', 630, 0, "default-menu-image.jpg"),
+    (8, 'Ham and Cheese','Wraps', 'MED', '', 630, 0, "default-menu-image.jpg"),
 
-    (9, 'Fried Chicken','Jamaican', 'MED', 'LRG', 700, 850),
-    (10, 'Spicy Baked Chicken','Jamaican', 'MED', 'LRG', 700, 850),
-    (11, 'BBQ Pork','Jamaican', 'MED', 'LRG', 700, 850),
-    (12, 'Curried Chicken','Jamaican', 'MED', 'LRG', 700, 850),
+    (9, 'Fried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
+    (10, 'Spicy Baked Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
+    (11, 'BBQ Pork','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
+    (12, 'Curried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
     
-    (13, 'Rice and Peas','Jamaican Sides', 'MED', '', 0, 0),
-    (14, 'Plain Rice','Jamaican Sides', 'MED', '', 0, 0),
-    (15, 'BBQ Pork','Jamaican Sides', 'MED', '', 0, 0);
+    (13, 'Rice and Peas','Jamaican Sides', 'MED', '', 0, 0, "default-menu-image.jpg"),
+    (14, 'Plain Rice','Jamaican Sides', 'MED', '', 0, 0, "default-menu-image.jpg"),
+    (15, 'Spicy Pasta','Jamaican Sides', 'MED', '', 0, 0, "default-menu-image.jpg");
 
 
     

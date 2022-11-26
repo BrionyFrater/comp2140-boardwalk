@@ -9,6 +9,40 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
+
+    <!--<?php
+        if(isset($_POST['submit'])){
+            #turn on error reporting
+            ini_set('display_errors', 'On');
+            error_reporting(E_ALL | E_STRICT);
+
+            #connects to databse
+            $host = 'localhost';
+            $username = 'boardwalk_user';
+            $password = 'password123';
+            $dbname = 'cafeInfo';
+            
+            try {
+                $conn = new PDO(
+                    'mysql:host=' . $host . ';dbname=' . $dbname,
+                    $username,
+                    $password
+                );
+
+            } catch (Exception $e) {
+                die($e->getMessage());
+            }
+
+            $img = $_FILES['menu-item-image']['name'];
+
+            $stmt = $conn->query("INSERT into menuItems (image) VALUES ($img)");
+            move_uploaded_file($_FILES['image'][$img], "images/$img");
+
+
+            echo "<script>alert('Uploaded')</script>";
+        }
+    ?>-->
+    
     <div id="wrapper">
         <header>
             <img src="images/boardWalkLogo.png" alt="boardwalk cafe's logo" id="boardwalkHeaderLogo">
@@ -19,7 +53,7 @@
             <h5>Providing Healthy Choices Since 2016</h2>  
         </header>
 
-        <!--MENU-->
+       
         <section id="menu-wrapper">
             <h2>Menu</h2>
             
@@ -27,6 +61,7 @@
                 
 
                 <?php
+
                     #turn on error reporting
                     ini_set('display_errors', 'On');
                     error_reporting(E_ALL | E_STRICT);
@@ -47,7 +82,7 @@
                     } catch (Exception $e) {
                         die($e->getMessage());
                     }
-
+                            
                     #get menu items and orders them by category
                     $stmt = $conn->query("SELECT * FROM menuItems ORDER BY category");
                     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -83,15 +118,18 @@
                         </button>
                         
                     <?php endforeach; ?>
-                
-                    <!--<form>
-                        <input name="boardwalk-image" type="">
-                    </form>-->
+                    
             </div>
         </section>
         
         
     </div>
     
+    <!--Testing manager functionality to add update image
+    <form action="index.php" method="post" enctype="multipart/form-data">
+        <input name="menu-item-image" type="file">
+        <input name="submit" type="submit" value="Upload">
+
+    </form>-->
 </body>
 </html>
