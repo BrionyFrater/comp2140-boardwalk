@@ -30,12 +30,12 @@ INSERT INTO `menuItems` VALUES (1, 'Chicken','Sandwiches', 'MED', '', 510, 0, "d
 
     (9, 'Fried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "fried-chicken.jpg"),
     (10, 'Spicy Baked Chicken','Jamaican', 'MED', 'LRG', 700, 850, "spicy-baked-chicken.jpg"),
-    (11, 'BBQ Pork','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
-    (12, 'Curried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
+    (11, 'BBQ Pork','Jamaican', 'MED', 'LRG', 700, 850, "bbq-pork.jpg"),
+    (12, 'Curried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "curried-chicken.jpg"),
     
-    (13, 'Rice and Peas','Jamaican Sides', 'MED', '', 0, 0, "default-menu-image.jpg"),
-    (14, 'Plain Rice','Jamaican Sides', 'MED', '', 0, 0, "default-menu-image.jpg"),
-    (15, 'Spicy Pasta','Jamaican Sides', 'MED', '', 0, 0, "default-menu-image.jpg");
+    (13, 'Rice and Peas','Jamaican Sides', 'MED', '', 0, 0, "rice-and-peas.jpg"),
+    (14, 'Plain Rice','Jamaican Sides', 'MED', '', 0, 0, "white-rice.jpg"),
+    (15, 'Spicy Pasta','Jamaican Sides', 'MED', '', 0, 0, "spicy-pasta.jpg");
 
 
     

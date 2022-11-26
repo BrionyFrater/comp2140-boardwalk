@@ -85,30 +85,40 @@
                             
                     #get menu items and orders them by category
                     $stmt = $conn->query("SELECT * FROM menuItems ORDER BY category");
-                    $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    $results = $stmt->fetchAll();
                     
-                    
+      
                     #goes through each menu item and prints its data
-                    foreach ($results as $row): ?>
-
-                        <button id="add-to-order-button" onclick="alert('naurr');">
+                    
+                    ?><div><?php
+                    
+                    for ($x = 0; $x < count($results); $x++){ 
+                        
+                        if($x > 0 and $results[$x-1]['category'] != $results[$x]['category']){?>
+                            <h3 class="category-heading"><?=$results[$x]['category']?></h3>
+                        <?php }elseif($x === 0){?>
+                            <h3 class="category-heading"><?=$results[$x]['category']?></h3>
+                        <?php } ?>
+                        
+                    
+                        <button class="addToOrderButton" onclick="alert('naurr');">
                         <div class="menuItem">
-                            <img src=<?="images/".$row['image']?> class="menuItemPic">
+                            <img src=<?="images/".$results[$x]['image']?> class="menuItemPic">
             
                             <div class="menuItemContent">
-                                <h5><?=$row['name']?></h5>
+                                <h5><?=$results[$x]['name']?></h5>
                                 <div class="prices">
                                     <?php 
                                         #checks if the item comes in a large size and prints the large size value
-                                        if(intval($row['large_price']) > 0 and intval($row['price']) > 0){?>
+                                        if(intval($results[$x]['large_price']) > 0 and intval($results[$x]['price']) > 0){?>
                                             
-                                            <h6><?=$row['medium_size']?> - $<?=$row['price']?></h6>
-                                            <h6><?=$row['large_size']?> - $<?=$row['large_price']?></h6>
+                                            <h6><?=$results[$x]['medium_size']?> - $<?=$results[$x]['price']?></h6>
+                                            <h6><?=$results[$x]['large_size']?> - $<?=$results[$x]['large_price']?></h6>
                                             
                                             
-                                        <?php }elseif(intval($row['price']) > 0){?>
+                                        <?php }elseif(intval($results[$x]['price']) > 0){?>
                                              
-                                            <h6>Price - $<?=$row['price']?></h6>
+                                            <h6>Price - $<?=$results[$x]['price']?></h6>
                                         <?php } ?>       
                                                  
                                     <h6></h6>
@@ -117,7 +127,8 @@
                         </div>
                         </button>
                         
-                    <?php endforeach;?>
+                    <?php } ?>
+                    </div>
                     
             </div>
         </section>

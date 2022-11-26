@@ -74,7 +74,7 @@ h2{
 }
 
 
-#add-to-order-button{
+.addToOrderButton{
     border: none;
     -webkit-appearance: none;
     border-radius: 5px;
@@ -87,7 +87,7 @@ h2{
 
 }
 
-#add-to-order-button:hover{
+.addToOrderButton:hover{
     cursor: pointer;
     transition: 0.3s;
     transform: scale(1.8);
