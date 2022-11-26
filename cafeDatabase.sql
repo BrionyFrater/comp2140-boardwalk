@@ -38,4 +38,25 @@ INSERT INTO `menuItems` VALUES (1, 'Chicken','Sandwiches', 'MED', '', 510, 0, "d
     (15, 'Spicy Pasta','Jamaican Sides', 'MED', '', 0, 0, "spicy-pasta.jpg");
 
 
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+    `name` varchar(50) NOT NULL default '',
+    `password` varchar(35)  NOT NULL default '',
+    `reward points` int(11) NOT NULL AUTO_INCREMENT ,
+    PRIMARY KEY (`name`)
+
+)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+    `id` int(11) NOT NULL AUTO_INCREMENT ,
+    `total` int(11) NOT NULL default 0,
+    `items` varchar(35)  NOT NULL default '',
+    `status` char(4) NOT NULL default 'OPEN',
+    PRIMARY KEY (`id`)
+
+)ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+
+INSERT INTO `orders` VALUES (1, 1550, '10 MED, 12 LRG');
     
