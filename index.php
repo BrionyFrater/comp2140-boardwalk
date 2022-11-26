@@ -93,7 +93,7 @@
 
                         <button id="add-to-order-button" onclick="alert('naurr');">
                         <div class="menuItem">
-                            <img class="menuItemPic">
+                            <img src=<?="images/".$row['image']?> class="menuItemPic">
             
                             <div class="menuItemContent">
                                 <h5><?=$row['name']?></h5>
@@ -117,7 +117,7 @@
                         </div>
                         </button>
                         
-                    <?php endforeach; ?>
+                    <?php endforeach;?>
                     
             </div>
         </section>
@@ -125,11 +125,12 @@
         
     </div>
     
-    <!--Testing manager functionality to add update image
-    <form action="index.php" method="post" enctype="multipart/form-data">
+    <!--Testing manager functionality to add/update image
+    <form action="test-imageUpload.php" method="post" enctype="multipart/form-data">
         <input name="menu-item-image" type="file">
         <input name="submit" type="submit" value="Upload">
 
-    </form>-->
+    </form>
+    -->
 </body>
 </html>

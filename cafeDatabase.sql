@@ -28,8 +28,8 @@ INSERT INTO `menuItems` VALUES (1, 'Chicken','Sandwiches', 'MED', '', 510, 0, "d
     (7, 'Chicken','Wraps', 'MED', '', 630, 0, "default-menu-image.jpg"),
     (8, 'Ham and Cheese','Wraps', 'MED', '', 630, 0, "default-menu-image.jpg"),
 
-    (9, 'Fried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
-    (10, 'Spicy Baked Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
+    (9, 'Fried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "fried-chicken.jpg"),
+    (10, 'Spicy Baked Chicken','Jamaican', 'MED', 'LRG', 700, 850, "spicy-baked-chicken.jpg"),
     (11, 'BBQ Pork','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
     (12, 'Curried Chicken','Jamaican', 'MED', 'LRG', 700, 850, "default-menu-image.jpg"),
     
