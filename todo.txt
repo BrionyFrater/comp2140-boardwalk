@@ -1,0 +1,2 @@
+1. Probably put location column on order class
+2. fix css for main page

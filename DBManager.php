@@ -94,7 +94,7 @@ class DBManager{
                     <?php } ?>
         </div><?php
     }
-
+    #stmt usually doesnt execute when the vallues we are trying to insert bigger than the value defined in the header insql
     #working
     function userInfo($name){
         
@@ -154,42 +154,75 @@ class DBManager{
     
     function deleteUser($name){
         
-        $this->conn->query("DELETE FROM `users` WHERE name = $name");
+        $stmt = $this->conn->prepare("DELETE FROM `users` WHERE name = :name");
+        $stmt->bindParam(':name', $name, PDO::PARAM_STR);
+
+        if($stmt->execute()){
+            echo 'user deleted';
+        }else{
+            echo 'error, user not delete';
+        }
     }
 
-    /*
+    
     function orderInfo($orderId){
+        
+        $stmt = $this->conn->prepare("SELECT * FROM `orders` WHERE `id` = :orderId");
+        $stmt->bindParam(':orderId', $orderId, PDO::PARAM_INT);
 
-        $stmt = $this->conn->query("SELECT * FROM orders WHERE id = $orderId");
-        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if($stmt->execute()){
+            if($stmt->rowCount() > 0){
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+                foreach($results as $row){
+                    $info = $row['items'];
+                }
+                
+                return $info;
 
+            }else{
+                return 'couldnt find order';
+            }
 
-        foreach($results as $row){
-            echo $row['items'];
+        }else{
+            return 'an error';
         }
 
-        echo 'ssca';
-
-        
-
-
-        #select last order
-        #$stmt = $this->conn->query("SELECT * FROM orders ORDER BY id DESC LIMIT 1");
-        #$results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        #select last order - idk
+        #$stmt = $this->conn->prepare("SELECT * FROM orders ORDER BY :id DESC LIMIT 1");
     }
 
-
+    
     #further testing needed
     function addOrder($total, $items, $date){
+
+        var_dump($date);
         
-        $this->conn->query("INSERT INTO `orders` (`total`, `items`, `date`) VALUES ($total, $items, $date)");
+        $stmt = $this->conn->prepare("INSERT INTO `orders` (`total`, `items`, `date`) VALUES (:total, :items, :date)");
+        $stmt->bindParam(':total', $total, PDO::PARAM_INT);
+        $stmt->bindParam(':items', $items, PDO::PARAM_STR);
+        $stmt->bindParam(':date', $date, PDO::PARAM_STR);
+
+        if($stmt->execute()){
+            echo 'order placed';
+        }else{
+            echo 'error, couldnt place order';
+        }
 
     }
 
+    
     function deleteOrder($orderId){
-        $this->conn->query("DELETE FROM orders WHERE id = $orderId");
-    }*/
+        $stmt = $this->conn->prepare("DELETE FROM `orders` WHERE `id` = :orderId");
+        $stmt->bindParam(':orderId', $orderId, PDO::PARAM_STR);
+
+        if($stmt->execute()){
+            echo 'order deleted';
+        }else{
+            echo 'error, order deleted';
+        }
+
+    }
 
 
 

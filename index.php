@@ -46,12 +46,9 @@
                     #goes through each menu item and prints its data
                     #$db->menuInfo();
 
-                    
-                    $db->addUser("greg", "123ekd");
-                    
-                   
-                   
-            
+                    #$date = date('d, m, Y', strtotime('now'));
+                    #$db->addOrder(140, 'juice and thing', $date);
+
                     
                     ?>
                     

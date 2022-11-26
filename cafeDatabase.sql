@@ -52,9 +52,9 @@ DROP TABLE IF EXISTS `orders`;
 CREATE TABLE `orders` (
     `id` int(11) NOT NULL AUTO_INCREMENT ,
     `total` int(11) NOT NULL default 0,
-    `items` varchar(35)  NOT NULL default '',
+    `items` varchar(300)  NOT NULL default '',
     `status` char(4) NOT NULL default 'OPEN',
-    `date` varchar(11) NOT NULL default '',
+    `date` varchar(20) NOT NULL default '',
     PRIMARY KEY (`id`)
 
 )ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
