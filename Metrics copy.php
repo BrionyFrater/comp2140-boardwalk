@@ -6,8 +6,17 @@ require_once 'DBManager.php';
 
 class Metrics{
 
+    private $conn;
+
+    function __construct($dbmanager)
+    {
+        $this->conn = $dbmanager->getConn();
+        
+    }
+
     function retrieveDB(){
 
+        return 0;
     }
 
     function generateReport(){

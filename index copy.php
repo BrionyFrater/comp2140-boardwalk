@@ -17,7 +17,9 @@
     
             <br>
             <br>
-            <h1>Welcome to the Boardwalk Caf&eacute;</h1>
+            <h5>Boardwalk Caf&eacute;</h5>
+            <h1>WEL</h1><br><h1>COME!</h1>
+            
             <h5>Providing Healthy Choices Since 2016</h2>  
         </header>
 
