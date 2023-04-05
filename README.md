@@ -1,6 +1,6 @@
 # comp2140-boardwalk
 
-Main menu for the Boardwalk Cafe
+Main menu for the Boardwalk Cafe. Menu info is retrieved from a database
 
 
 
