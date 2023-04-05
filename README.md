@@ -1,3 +1,7 @@
 # comp2140-boardwalk
 
-i plan to change the layout of the Main Menu i just wanted to see things on the page, i also had to put some placeholder things in the database.
+Main menu for the Boardwalk Cafe
+
+
+https://user-images.githubusercontent.com/114207468/230181372-1c05c653-ead5-4ef2-b73f-0c6cf5a7164d.mov
+
